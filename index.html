@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Cardlet</title>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--
+  <link rel="stylesheet" href="navbar.css">-->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
+  <script>
+    $(function () {
+      $(".toggle").on("click", function () {
+        if ($(".item").hasClass("visible")) {
+          $(".item").removeClass("visible");
+        } else {
+          $(".item").addClass("visible");
+        }
+      });
+
+      $(".item").on("click", function (event) {
+        if ($(".item").hasClass("visible")) {
+          $(".item").removeClass("visible");
+        } else {
+          $(".item").addClass("visible");
+        }
+        $(".item").removeClass("active");
+        const clickedElement = event.target.parentElement;
+        $(clickedElement).addClass('active');
+      });
+    });
+  </script>
+
+
+
+  <script>
+
+    $(function () {
+      if( $(document).width() < 639) return;
+
+      $(document).on("scroll", scroll);
+
+      menu = $('nav a');
+
+      menu.filter(':first').addClass('active'); //ilk linke aktif class'ı ata
+
+      menu.on('click', function () {
+        $(document).off("scroll");
+        var id = $(this).attr('href'),
+          target = this.hash;
+        menu.removeClass('active'); //linklerde ki aktif class'larını sil
+        $(this).addClass('active'); //tıklanan linke aktif class'ı ata
+        $('html, body').animate({ scrollTop: $(id).offset().top }, {
+          duration: 500, //tempo
+          complete: function () { //bu animasyon tamamlandığında
+            $('.contente').css('background', 'transparent'); //tüm içerik divinin rengini transparan yap
+            $(id).css('background', '#fff'); //tıklanan link ile eşleşen divin arkaplan rengini değiştir
+            $(document).on("scroll", scroll);
+          }
+        });
+        return false;
+      });
+
+    });
+
+    function scroll(event) {
+     
+      if( $(document).width() < 639) return;
+      const scrollPos = $(document).scrollTop();
+      menu.each(function () {
+        const currLink = $(this);
+
+        const refElement = $(currLink.attr("href"));
+        if (refElement.position().top <= scrollPos + 300 && refElement.position().top + refElement.height() > scrollPos) {
+          menu.removeClass("active");
+          currLink.addClass("active");
+        }
+        else {
+          currLink.removeClass("active");
+        }
+      });
+    }
+
+  </script>
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/estilomenu.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/novohome.css" />
+  <link rel="stylesheet" href="css/estilo.css" />
+
+
+
+</head>
+
+<body>
+  <!-- top do site -->
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-sm-12">
+
+        <div class="container">
+          <div class="row_1">
+            <div class="image-content_b">
+              <div class="logomarca">
+                <div id="logo">
+                  <img src="img/logo.png">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- menu -->
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-sm-12">
+
+        <div class="container_M">
+          <header id="menutop">
+            <a href="#home" class="logo" data-scroll></a>
+
+            <nav>
+              <ul class="menu_novo">
+                <li class="item"><a href="#home">Informações</a></li>
+                <li class="item"><a href="#vantagens">Vantagens</a></li>
+                <li class="item"><a href="#comoadquirir">Como Adquirir</a></li>
+                <li class="item"><a href="#faq">FAQ</a></li>
+                <li class="item"><a href="#download">Download</a></li>
+                <li class="item"><a href="#contato">Contatos</a></li>
+
+                <li class="toggle"><span class="bars"></span></li>
+              </ul>
+            </nav>
+
+          </header>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--section home-->
+  <section id="home">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-sm-12">
+          <section class="section">
+            <br><br><br>
+            <div class="container">
+
+              <ul class="slides">
+                <input type="radio" name="radio-btn" id="img-1" checked />
+                <li class="slide-container">
+                  <div class="slide">
+                    <img src="imagem capa/imagem01.png" />
+                  </div>
+                  <div class="nav">
+                    <label for="img-3" class="prev">&#x2039;</label>
+                    <label for="img-2" class="next">&#x203a;</label>
+                  </div>
+                </li>
+
+                <input type="radio" name="radio-btn" id="img-2" />
+                <li class="slide-container">
+                  <div class="slide">
+                    <img src="imagem capa/img00020.png" />
+                  </div>
+                  <div class="nav">
+                    <label for="img-1" class="prev">&#x2039;</label>
+                    <label for="img-3" class="next">&#x203a;</label>
+                  </div>
+                </li>
+
+                <input type="radio" name="radio-btn" id="img-3" />
+                <li class="slide-container">
+                  <div class="slide">
+                    <img src="imagem capa/imagem03.png" />
+                  </div>
+                  <div class="nav">
+                    <label for="img-2" class="prev">&#x2039;</label>
+                    <label for="img-1" class="next">&#x203a;</label>
+                  </div>
+                </li>
+
+
+                <li class="nav-dots">
+                  <label for="img-1" class="nav-dot" id="img-dot-1"></label>
+                  <label for="img-2" class="nav-dot" id="img-dot-2"></label>
+                  <label for="img-3" class="nav-dot" id="img-dot-3"></label>
+
+                </li>
+              </ul>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!--fim slide-->
+
+    <br /><br />
+
+    <div class="container_M" style="background:#92bbda">
+      <div class="row">
+        <div class="col-12 col-sm-12">
+          <div class="linha_ah">
+            <div class="coluna_bh">
+              <div class="image-content_botao_seta">
+                <img src="img/setainformacoes.png">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="linha_ah">
+        <div class="coluna_azul_ec">
+
+          <div class="container_text_a">
+            <div class="text espaco ">
+              <p>Crie seu próprio cartão virtual</p>
+              </br>
+              <div class="text_bh">Cartões de visitas virtuais!
+                Coloque todas as suas informações de contato, incluindo redes sociais.
+                Pode ser editado a qualquer momento e atualizadas na hora!
+                Seu cartão pode ser pesquisado por outros usuários, facilitando sua interação com os clientes.
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="coluna_azul">
+          <div class="contente_cartao">
+            <img src="img/propriocartao.png">
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="linha_za">
+      <div class="coluna_rb">
+        <div class="circulo_branco">
+          <img src="img/circulobranco.png">
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="containe_M">
+      <div class="row">
+        <div class="col-12 col-sm-12">
+          <div class="linha_zh">
+            <div class="coluna_rh">
+              <div class="circulo_azul">
+                <img src="img/circuloazul.png">
+              </div>
+            </div>
+            <div class="coluna_pg">
+              <div class="contente_e6">
+                <img src="img/setainformacoescinza.png">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="linha">
+
+        <div class="coluna_ah">
+          <div class="contente_pesquise">
+            <img src="img/imagempesquise.png">
+          </div>
+
+          <div class="container_text_h">
+            <div class="text_hs">
+              <div class="texto_pesquisa">Pesquise e salve cartões de sua preferencia</div>
+
+              <div class="texto_h4">Você pode pesquisar por outros cartões com diversos tipos de serviços prestados.
+                Facilitando o contato entre as pessoas e prestadores de serviços.
+                Este cartões poderão ser salvos e acessados sem precisar de conexão!
+                Uma carteira de cartões virtuais inédito no Brasil.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <div class="container_M" style="background:#92bbda">
+      <div class="row">
+        <div class="col-12 col-sm-12">
+          <div class="linha_ah">
+            <div class="coluna_bh">
+              <div class="image-content_botaoh">
+                <img src="img/setainformacoes.png">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="linha_za">
+        <div class="coluna_q1">
+          <div class="container_text_d">
+            <div class="text_comp">
+              <p>Compartilhe o sistema</p></br>
+              <div class="text_ch1">Ele poderá ser compartilhado com facilidade e quantas vezes for necessário sem
+                limite
+                de uso.
+                Criando seu cartão, você se torna um de nossos afiliados.
+                À medida que outras pessoas forem adquirindo os cartões a partir da sua indicação, você
+                receberá comissões.
+                Compartilhe com a família, os amigos e os seus clientes o seu cartão virtual.</div>
+            </div>
+          </div>
+          <div class="coluna_h">
+            <div class="contente_p1">
+              <img src="img/imagemcompartilhe.png">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="linha_za">
+      <div class="coluna_rb">
+        <div class="circulo_branco">
+          <img src="img/circulobranco.png">
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="container_M">
+      <div class="row">
+        <div class="col-12 col-sm-12">
+          <div class="container_M">
+            <div>
+              <div class="linha_zh">
+                <div class="coluna_rh">
+                  <div class="circulo_azul">
+                    <img src="img/circuloazul.png">
+                  </div>
+                </div>
+                <div class="coluna_pg">
+                  <div class="contente_e6">
+                    <img src="img/setainformacoescinza.png">
+                  </div>
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="linha">
+
+            <div class="coluna_j">
+              <div class="contente_t">
+                <img src="img/imagemseguranca.png">
+              </div>
+
+              <div class="container_text_s">
+
+                <div class="text_x">
+                  <p>Segurança:</p>
+                  <br><br>
+
+                  <div class="texto_hs2">Tudo isso com a segurança da nossa parceria com o Google Pay e Apple Pay, que
+                    protege seus dados bancários e as transações financeiras.
+
+                  </div> </br>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br><br>
+      </div>
+    </div>
+    </div>
+
+    <div class="container_M" style="background:#92bbda">
+      <div class="row">
+        <div class="col-12 col-sm-12">
+          <div class="linha_ah">
+            <div class="coluna_bh">
+              <div class="image-content_botaoh">
+                <img src="img/setainformacoes.png">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="linha_za">
+        <div class="coluna_q1">
+          <div class="container_text_amb">
+            <div class="texto">
+              <p>Meio Ambiente:</p></br>
+              <div class="text_ch">O aplicativo é ecologicamente sustentável evitando os gastos com papeis para
+                impressões
+                de cartões de visita.</div>
+            </div>
+          </div>
+          <div class="coluna_h">
+            <div class="contente_p2">
+              <img src="img/meioambiente.png">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="linha_za">
+      <div class="coluna_rb">
+        <div class="circulo_branco">
+          <img src="img/circulobranco.png">
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+  </section>
+
+  <br>
+  <!--section vantagens-->
+  <div id="vantagens" class="container_M">
+    <div class="row">
+      <div class="col-12 col-sm-12">
+        <section>
+          <br> <br>
+
+          <div class="container">
+            <div class="linha">
+              <div class="coluna">
+                <div class='image-content_11a'>
+                  Vantagens
+                </div>
+              </div>
+            </div>
+          </div>
+          <br><br>
+          <div class="container">
+            <div class="linha">
+
+
+              <div class="coluna_c">
+                <div class="container_1">
+                  <img src="img/imagemcelulares.png">
+                </div>
+              </div>
+              <div class="coluna_a">
+                <div class="lista_v">
+                  <ul>
+                    <li class="text">
+                      - Compartilhamento das suas informações profissionais de forma rápida, prática e segura. </li>
+                    <br />
+                    <li class="text">- Retenção no número de cartões enviado para as pessoas, uma vez que os cartões
+                      pessoais físicos são muitas vezes descartados, perdidos, ou até desinteressantes. Os virtuais
+                      podem ser salvos pelo próprio aplicativo, ou procurado por pesquisa, quando necessário. </li>
+                    <br />
+                    <li class="text">- Cartões responsivos, sendo facilmente direcionado para várias diferentes
+                      informações que pode conter no cartão de visitas virtual. </li> <br />
+                    <li class="text"> - Compartilhamento ilimitado dos cartões, podendo enviar ou compartilhar os
+                      cartões de diversas maneiras. Evitando perder algum possível cliente por falta de cartão no
+                      momento do contato.</li> <br />
+                    <li class="text"> - Informações fáceis de serem editadas pelo usuário, caso precise de alterar
+                      endereço, número do telefone, ou até mesmo o ramo da atuação da área profissional. </li> <br />
+                    <li class="text"> - Impressione na hora de mostrar o cartão de visitas digital, saindo do básico e
+                      velho cartão de papel, sem nenhuma interação. </li> <br />
+                    <li class="text"> - Ampliação do seu networking, podendo compartilhar de forma fácil as informações
+                      do seu cartão com várias pessoas, incluindo pessoas distantes de você.</li> <br />
+                  </ul>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <!--section como adquirir-->
+  <div id="comoadquirir" class="container_M">
+    <div class="row">
+      <div class="col-12 col-sm-12">
+        <section>
+          <br> <br>
+          <div class="container">
+            <div class="linha">
+              <div class="coluna">
+                <div class="image-content_11b">
+                  <img src="img/comoadquirir.png">
+                </div>
+              </div>
+            </div>
+
+            <!--primeira coluna -->
+            <div class="container">
+              <div class="linha">
+                <div class="coluna_ca">
+                  <div class='image-content_botao1'>
+                    <img src="img/numero1.png">
+                  </div>
+                  <div class="container_text_como">
+                    <div class="text">Baixe o aplicativo pelo link de um conhecido ou pela loja oficial de apps.
+                    </div>
+                  </div>
+                </div>
+                <div class="coluna_b">
+                  <div class="image-content_chave_a">
+                    <img src="img/chaveligacaocinza.png">
+                  </div>
+                  <div class='image-content_o'>
+                    <img src="img/globoplay.png">
+                  </div>
+
+                  <div class='image-content_o'>
+                    <img src="img/appstore.png">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--segunda coluna -->
+            <div class="container">
+              <div class="linha">
+                <div class="coluna_ca">
+                  <div class='image-content_botao1'>
+                    <img src="img/numero2.png">
+                  </div>
+                  <div class="container_text_como">
+                    <div class="text">Se alguém te indicou o plicativo, digite o código de referência no campo indicado.
+                    </div>
+                  </div>
+                </div>
+                <div class="coluna_b">
+                  <div class="image-content_chave_a">
+                    <img src="img/chaveligacaocinza.png">
+                  </div>
+                  <div class='image-content_200'>
+                    <img src="img/imagem2.png">
+                  </div>
+
+
+                </div>
+              </div>
+            </div>
+
+            <!--terceira coluna -->
+
+            <div class="container">
+              <div class="linha">
+                <div class="coluna_ca">
+                  <div class='image-content_botao1'>
+                    <img src="img/numero3.png">
+                  </div>
+                  <div class="container_text_como">
+                    <div class="text">Click no botão "+" para criar o seu cartão de informações.
+                    </div>
+                  </div>
+                </div>
+                <div class="coluna_b">
+                  <div class="image-content_chave_a">
+                    <img src="img/chaveligacaocinza.png">
+                  </div>
+                  <div class='image-content_botao_m'>
+                    <img src="img/botaomais.png">
+                  </div>
+                  <div class='image-content_m'>
+                    <img src="img/imagem3.png">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--quarta coluna -->
+
+          <div class="container">
+            <div class="linha">
+              <div class="coluna_ca">
+                <div class='image-content_botao2'>
+                  <img src="img/numero4.png">
+                </div>
+                <div class="container_text_como">
+                  <div class="text">-leia o termo de compromisso, clique em aceitar para criar o seu cartão.
+
+                  </div>
+                </div>
+              </div>
+              <div class="coluna_b">
+                <div class="image-content_chave_a">
+                  <img src="img/chaveligacaocinza.png">
+                </div>
+                <div class='image-content_44'>
+                  <img src="img/imagem4.png">
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+
+          <!--quinta coluna -->
+
+          <div class="container">
+            <div class="linha">
+              <div class="coluna_ca">
+                <div class='image-content_botao2'>
+                  <img src="img/numero5.png">
+                </div>
+                <div class="container_text_comog">
+                  <div class="text">Pagando apenas 60 reais você terá acesso a área de criação do seu cartão e poderá
+                    adicionar suas informações no aplicativo
+                  </div>
+                </div>
+              </div>
+              <div class="coluna_b">
+
+                <div class="image-content_chave_a" style="margin-bottom: 10px">
+                  <img src="img/chaveligacaocinza.png">
+                </div>
+                <div class='image-content_d'>
+                  <img src="img/imagem5.png">
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+      <br> <br> <br> <br>
+      </section>
+    </div>
+  </div>
+  </div>
+
+  <!--section faq-->
+  <div id="faq" class="container_M">
+    <div class="row">
+      <div class="col-12 col-sm-12">
+        <section>
+          <br>
+          <div class="container">
+            <div class="linha">
+              <div class="coluna">
+                <div class='image-content_botao_f'>
+                  <img src="img/imagemfaq2.png">
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="container">
+
+            <!--primeira coluna -->
+
+            <div class="linha">
+              <div class="coluna_faq">
+                <div class="coluna_faq_img">
+                  <div class='image-content_p'>
+                    <img src="img/imagempergunta.png">
+                  </div>
+                  <div class="image-content_r">
+                    <img src="img/imagemresponde.png">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+      <!--imagem texto-->
+      <div class="contener_faq">
+
+        <picture>
+          <source media="(min-width:650px)" srcset="img/img_faq2.png">
+          <source media="(min-width:200px)" srcset="img/textomobile2.png">
+          <img src="img/textomobile.png" alt="faq">
+        </picture>
+
+
+      </div>
+    </div>
+  </div>
+  </div>
+  </section>
+  <br><br>
+  </div>
+  </div>
+  </div>
+  <!--section download-->
+
+  <div id="download" class="container_M">
+    <div class="row">
+      <div class="col-12 col-sm-12">
+        <section class="section">
+          <br><br>
+          <div class="container">
+            <div class="linha">
+              <div class="coluna">
+                <div class='image-content_11a'>
+                  <img src="img/imagemdownload.png">
+                </div>
+              </div>
+            </div>
+          </div>
+          <br><br>
+          <div class="container">
+            <div class="linha_d">
+              <div class="coluna_downloard">
+                <div class="container_20">
+                  <picture>
+                    <source media="(min-width:650px)" srcset="img/download5.png">
+                    <source media="(min-width:200px)" srcset="img/downloadmobile.png">
+                    <img src="img/downloadmobile.png" alt="download">
+                  </picture>
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <br>
+
+          <div class="linha">
+            <div class="coluna3">
+              <div class='image-content_11w'>
+                <img src="img/baixeaplicativo.png">
+              </div>
+            </div>
+          </div>
+          <br>
+          <!--primeira coluna -->
+
+          <div class="linha">
+            <div class="coluna_downloard_play">
+
+              <ol>
+                <li>
+                  <div class="image-content_21a">
+                    <img src="img/googleplayazul.png">
+                  </div>
+                </li>
+
+
+                <li>
+                  <div class='image-content_21a'>
+                    <img src="img/qrcodazulgoogle.png">
+                  </div>
+                </li>
+
+              </ol>
+
+
+              <ol>
+                <li>
+                  <div class='image-content_21'>
+                    <img src="img/appstoreazul.png">
+                  </div>
+                </li>
+
+                <li>
+                  <div class='image-content_21'>
+                    <img src="img/qrcodeazulapp.png">
+                  </div>
+                </li>
+              </ol>
+            </div>
+
+          </div>
+      </div>
+    </div>
+  </div><br>
+
+
+  </section>
+  <br>
+  <br>
+  </div>
+  </div>
+  </div>
+
+  <!--section contato-->
+  <div id="contato" class="container_M">
+    <div class="row">
+      <div class="col-12 col-sm-12">
+        <section>
+          <br>
+
+          <div class="container">
+            <div class="linha">
+              <div class="coluna_do">
+                <div class='image-content_100'>
+                  <img src="img/palavracontatos.png">
+                </div>
+                <br>
+              </div>
+            </div>
+          </div>
+          </br>
+
+          <div class="container_contact">
+            <img src="img/coneccoes.png">
+          </div>
+          <div class="linha">
+            <div class="coluna_do">
+              <div class='image-content_botao_contato'>
+                <img src="img/facebook.png">
+              </div>
+              <div class='image-content_botao_contato'>
+                <img src="img/whats.png">
+              </div>
+              <div class='image-content_botao_contato'>
+                <img src="img/insta.png">
+              </div>
+              <div class='image-content_botao_contato'>
+                <img src="img/linkedin.png">
+              </div>
+            </div>
+          </div>
+
+          </br>
+          <div class="linha">
+            <div class="coluna_do">
+              <div class='image-content_botao_contato'>
+                <img src="img/email.png">
+              </div>
+              <div class='image-content_15'>
+                <img src="img/emailcontato.png">
+              </div>
+            </div>
+          </div>
+          <div class="footer">
+            <div id="menu_footer">
+              <ul>
+                <li><a href="card.html">Card</a></li>
+                <li> <a href="termos.html">Termos e Condições de uso</a></li>
+                <li> <a href="privacidade.html">Privacidade</a></li>
+              </ul>
+            </div>
+          </div>
+
+        </section>
+        <br>
+      </div>
+    </div>
+</body>
+
+
+
+
+<script>
+
+  $(function () {
+    $('a[href*=#]').on('click', function (e) {
+      e.preventDefault();
+      $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top }, 500, 'linear');
+    });
+  });
+
+</script>
+
+
+
+
+<script>
+  $(window).scroll(function () {
+    if ($(window).scrollTop() >= 50) {
+      $('#menutop').addClass('fixo').fadeIn();
+    } else {
+      $('#menutop').removeClass('fixo');
+    }
+  });
+</script>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+
+
+
+</html>
